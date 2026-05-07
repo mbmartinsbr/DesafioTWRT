@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "RZrtyrbTqzA=",
+  "success": true,
+  "projectFilePath": "D:\\DesafioTWRT\\src\\GestaoPedidos.Application\\GestaoPedidos.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\MatheusMartins\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\MatheusMartins\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
+    "C:\\Users\\MatheusMartins\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

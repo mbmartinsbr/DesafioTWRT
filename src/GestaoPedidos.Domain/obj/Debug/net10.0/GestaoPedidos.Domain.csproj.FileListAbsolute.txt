@@ -1,0 +1,11 @@
+d:\DesafioTWRT\src\GestaoPedidos.Domain\bin\Debug\net10.0\GestaoPedidos.Domain.deps.json
+d:\DesafioTWRT\src\GestaoPedidos.Domain\bin\Debug\net10.0\GestaoPedidos.Domain.dll
+d:\DesafioTWRT\src\GestaoPedidos.Domain\bin\Debug\net10.0\GestaoPedidos.Domain.pdb
+d:\DesafioTWRT\src\GestaoPedidos.Domain\obj\Debug\net10.0\GestaoPedidos.Domain.GeneratedMSBuildEditorConfig.editorconfig
+d:\DesafioTWRT\src\GestaoPedidos.Domain\obj\Debug\net10.0\GestaoPedidos.Domain.AssemblyInfoInputs.cache
+d:\DesafioTWRT\src\GestaoPedidos.Domain\obj\Debug\net10.0\GestaoPedidos.Domain.AssemblyInfo.cs
+d:\DesafioTWRT\src\GestaoPedidos.Domain\obj\Debug\net10.0\GestaoPedidos.Domain.csproj.CoreCompileInputs.cache
+d:\DesafioTWRT\src\GestaoPedidos.Domain\obj\Debug\net10.0\GestaoPedidos.Domain.dll
+d:\DesafioTWRT\src\GestaoPedidos.Domain\obj\Debug\net10.0\refint\GestaoPedidos.Domain.dll
+d:\DesafioTWRT\src\GestaoPedidos.Domain\obj\Debug\net10.0\GestaoPedidos.Domain.pdb
+d:\DesafioTWRT\src\GestaoPedidos.Domain\obj\Debug\net10.0\ref\GestaoPedidos.Domain.dll

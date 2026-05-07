@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GestaoPedidos.API</name>
+    </assembly>
+    <members>
+        <member name="T:GestaoPedidos.API.Controllers.ClientesController">
+            <summary>Gerenciamento de clientes.</summary>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ClientesController.#ctor(GestaoPedidos.Application.Services.ClienteService)">
+            <summary>Gerenciamento de clientes.</summary>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ClientesController.Criar(GestaoPedidos.Application.DTOs.Clientes.CriarClienteRequest)">
+            <summary>Cadastra um novo cliente.</summary>
+            <remarks>
+            O documento pode ser CPF (11 dígitos) ou CNPJ (14 dígitos) — somente números.
+            Email e documento devem ser únicos entre clientes **ativos**.
+            </remarks>
+            <response code="201">Cliente criado com sucesso.</response>
+            <response code="409">Email ou documento já cadastrado em cliente ativo.</response>
+            <response code="422">Dados de entrada inválidos (CPF/CNPJ inválido, email mal formado, etc.).</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ClientesController.Listar(System.Int32,System.Int32)">
+            <summary>Lista clientes com paginação.</summary>
+            <param name="pagina">Número da página (começa em 1).</param>
+            <param name="tamanhoPagina">Itens por página (padrão: 20, máx: 100).</param>
+            <response code="200">Lista paginada de clientes.</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ClientesController.ObterPorId(System.Guid)">
+            <summary>Busca um cliente pelo ID.</summary>
+            <param name="id">ID do cliente.</param>
+            <response code="200">Cliente encontrado.</response>
+            <response code="404">Cliente não encontrado.</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ClientesController.AlterarStatus(System.Guid,GestaoPedidos.Application.DTOs.Clientes.AlterarStatusClienteRequest)">
+            <summary>Ativa ou desativa um cliente (soft delete).</summary>
+            <param name="id">ID do cliente.</param>
+            <param name="request">Novo estado desejado.</param>
+            <response code="200">Status alterado com sucesso.</response>
+            <response code="404">Cliente não encontrado.</response>
+        </member>
+        <member name="T:GestaoPedidos.API.Controllers.PedidosController">
+            <summary>Gerenciamento de pedidos.</summary>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.PedidosController.#ctor(GestaoPedidos.Application.Services.PedidoService)">
+            <summary>Gerenciamento de pedidos.</summary>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.PedidosController.Criar(GestaoPedidos.Application.DTOs.Pedidos.CriarPedidoRequest)">
+             <summary>Cria um novo pedido.</summary>
+             <remarks>
+             O fluxo transacional garante que:
+             - O cliente existe e está ativo
+             - Todos os produtos existem, estão ativos e possuem estoque suficiente
+             - O estoque é debitado atomicamente para todos os itens
+             - O preço unitário de cada item é capturado no momento da criação (snapshot)
+            
+             Transições de status permitidas:
+             - `Criado` → `Pago` | `Cancelado`
+             - `Pago` → `Enviado`
+             - `Enviado` → _(nenhuma)_
+             - `Cancelado` → _(nenhuma)_
+             </remarks>
+             <response code="201">Pedido criado com sucesso.</response>
+             <response code="400">Cliente inativo, produto inativo ou estoque insuficiente.</response>
+             <response code="404">Cliente ou produto não encontrado.</response>
+             <response code="422">Dados de entrada inválidos (lista de itens vazia, quantidade zero, etc.).</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.PedidosController.Listar(System.Int32,System.Int32)">
+            <summary>Lista pedidos com paginação.</summary>
+            <param name="pagina">Número da página (começa em 1).</param>
+            <param name="tamanhoPagina">Itens por página (padrão: 20, máx: 100).</param>
+            <response code="200">Lista paginada de pedidos.</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.PedidosController.ObterPorId(System.Guid)">
+            <summary>Busca um pedido pelo ID (inclui itens e histórico de status).</summary>
+            <param name="id">ID do pedido.</param>
+            <response code="200">Pedido encontrado com itens e histórico.</response>
+            <response code="404">Pedido não encontrado.</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.PedidosController.AlterarStatus(System.Guid,GestaoPedidos.Application.DTOs.Pedidos.AlterarStatusPedidoRequest)">
+             <summary>Altera o status de um pedido.</summary>
+             <remarks>
+             Transições permitidas:
+             - `Criado` → `Pago` | `Cancelado`
+             - `Pago` → `Enviado`
+            
+             Enviar o mesmo status atual retorna `400` sem registrar histórico.
+            
+             Ao cancelar um pedido com status `Criado` ou `Pago`, o estoque dos produtos é devolvido automaticamente.
+             Pedidos com status `Enviado` não aceitam mais alterações.
+             </remarks>
+             <param name="id">ID do pedido.</param>
+             <param name="request">Novo status e motivo opcional.</param>
+             <response code="200">Status alterado com sucesso.</response>
+             <response code="400">Transição inválida ou status igual ao atual.</response>
+             <response code="404">Pedido não encontrado.</response>
+        </member>
+        <member name="T:GestaoPedidos.API.Controllers.ProdutosController">
+            <summary>Gerenciamento de produtos e estoque.</summary>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ProdutosController.#ctor(GestaoPedidos.Application.Services.ProdutoService)">
+            <summary>Gerenciamento de produtos e estoque.</summary>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ProdutosController.Criar(GestaoPedidos.Application.DTOs.Produtos.CriarProdutoRequest)">
+            <summary>Cadastra um novo produto.</summary>
+            <remarks>O preço deve ser maior que zero. O estoque inicial deve ser maior ou igual a zero.</remarks>
+            <response code="201">Produto criado com sucesso.</response>
+            <response code="422">Dados de entrada inválidos (preço zero ou negativo, nome vazio, etc.).</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ProdutosController.Listar(System.Int32,System.Int32)">
+            <summary>Lista produtos com paginação.</summary>
+            <param name="pagina">Número da página (começa em 1).</param>
+            <param name="tamanhoPagina">Itens por página (padrão: 20, máx: 100).</param>
+            <response code="200">Lista paginada de produtos.</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ProdutosController.ObterPorId(System.Guid)">
+            <summary>Busca um produto pelo ID.</summary>
+            <param name="id">ID do produto.</param>
+            <response code="200">Produto encontrado.</response>
+            <response code="404">Produto não encontrado.</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ProdutosController.Atualizar(System.Guid,GestaoPedidos.Application.DTOs.Produtos.AtualizarProdutoRequest)">
+            <summary>Atualiza nome e descrição de um produto.</summary>
+            <param name="id">ID do produto.</param>
+            <param name="request">Novos dados do produto.</param>
+            <response code="200">Produto atualizado.</response>
+            <response code="404">Produto não encontrado.</response>
+            <response code="422">Dados de entrada inválidos.</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ProdutosController.AtualizarPreco(System.Guid,GestaoPedidos.Application.DTOs.Produtos.AtualizarPrecoRequest)">
+            <summary>Atualiza o preço de um produto.</summary>
+            <remarks>
+            A alteração de preço não afeta pedidos já criados — o preço é capturado como snapshot no momento da criação do pedido.
+            </remarks>
+            <param name="id">ID do produto.</param>
+            <param name="request">Novo preço (deve ser maior que zero).</param>
+            <response code="200">Preço atualizado com sucesso.</response>
+            <response code="404">Produto não encontrado.</response>
+            <response code="422">Preço inválido (zero ou negativo).</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ProdutosController.AlterarStatus(System.Guid,GestaoPedidos.Application.DTOs.Produtos.AlterarStatusProdutoRequest)">
+            <summary>Ativa ou desativa um produto (soft delete).</summary>
+            <param name="id">ID do produto.</param>
+            <param name="request">Novo estado desejado.</param>
+            <response code="200">Status alterado com sucesso.</response>
+            <response code="404">Produto não encontrado.</response>
+        </member>
+        <member name="M:GestaoPedidos.API.Controllers.ProdutosController.AtualizarEstoque(System.Guid,GestaoPedidos.Application.DTOs.Produtos.AtualizarEstoqueRequest)">
+            <summary>Ajusta manualmente o estoque de um produto.</summary>
+            <remarks>
+            Use um valor **positivo** para repor estoque e **negativo** para dar baixa manual.
+            O estoque resultante não pode ficar negativo.
+            </remarks>
+            <param name="id">ID do produto.</param>
+            <param name="request">Quantidade a ajustar (positivo = entrada, negativo = saída).</param>
+            <response code="200">Estoque atualizado.</response>
+            <response code="400">Ajuste resultaria em estoque negativo.</response>
+            <response code="404">Produto não encontrado.</response>
+        </member>
+    </members>
+</doc>

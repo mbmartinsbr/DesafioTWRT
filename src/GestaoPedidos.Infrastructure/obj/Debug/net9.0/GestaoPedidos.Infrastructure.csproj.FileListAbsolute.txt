@@ -1,0 +1,17 @@
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\bin\Debug\net9.0\GestaoPedidos.Infrastructure.deps.json
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\bin\Debug\net9.0\GestaoPedidos.Infrastructure.runtimeconfig.json
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\bin\Debug\net9.0\GestaoPedidos.Infrastructure.dll
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\bin\Debug\net9.0\GestaoPedidos.Infrastructure.pdb
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\bin\Debug\net9.0\GestaoPedidos.Domain.dll
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\bin\Debug\net9.0\GestaoPedidos.Domain.pdb
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\GestaoPedidos.Infrastructure.csproj.AssemblyReference.cache
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\GestaoPedidos.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\GestaoPedidos.Infrastructure.AssemblyInfoInputs.cache
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\GestaoPedidos.Infrastructure.AssemblyInfo.cs
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\GestaoPedidos.Infrastructure.csproj.CoreCompileInputs.cache
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\GestaoPe.D6FCA9C0.Up2Date
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\GestaoPedidos.Infrastructure.dll
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\refint\GestaoPedidos.Infrastructure.dll
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\GestaoPedidos.Infrastructure.pdb
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\GestaoPedidos.Infrastructure.genruntimeconfig.cache
+D:\DesafioTWRT\src\GestaoPedidos.Infrastructure\obj\Debug\net9.0\ref\GestaoPedidos.Infrastructure.dll

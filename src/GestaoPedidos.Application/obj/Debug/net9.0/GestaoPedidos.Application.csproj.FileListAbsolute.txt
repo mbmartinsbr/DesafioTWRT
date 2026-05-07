@@ -1,0 +1,15 @@
+D:\DesafioTWRT\src\GestaoPedidos.Application\bin\Debug\net9.0\GestaoPedidos.Application.deps.json
+D:\DesafioTWRT\src\GestaoPedidos.Application\bin\Debug\net9.0\GestaoPedidos.Application.dll
+D:\DesafioTWRT\src\GestaoPedidos.Application\bin\Debug\net9.0\GestaoPedidos.Application.pdb
+D:\DesafioTWRT\src\GestaoPedidos.Application\bin\Debug\net9.0\GestaoPedidos.Domain.dll
+D:\DesafioTWRT\src\GestaoPedidos.Application\bin\Debug\net9.0\GestaoPedidos.Domain.pdb
+D:\DesafioTWRT\src\GestaoPedidos.Application\obj\Debug\net9.0\GestaoPedidos.Application.csproj.AssemblyReference.cache
+D:\DesafioTWRT\src\GestaoPedidos.Application\obj\Debug\net9.0\GestaoPedidos.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\DesafioTWRT\src\GestaoPedidos.Application\obj\Debug\net9.0\GestaoPedidos.Application.AssemblyInfoInputs.cache
+D:\DesafioTWRT\src\GestaoPedidos.Application\obj\Debug\net9.0\GestaoPedidos.Application.AssemblyInfo.cs
+D:\DesafioTWRT\src\GestaoPedidos.Application\obj\Debug\net9.0\GestaoPedidos.Application.csproj.CoreCompileInputs.cache
+D:\DesafioTWRT\src\GestaoPedidos.Application\obj\Debug\net9.0\GestaoPe.AFEEAE08.Up2Date
+D:\DesafioTWRT\src\GestaoPedidos.Application\obj\Debug\net9.0\GestaoPedidos.Application.dll
+D:\DesafioTWRT\src\GestaoPedidos.Application\obj\Debug\net9.0\refint\GestaoPedidos.Application.dll
+D:\DesafioTWRT\src\GestaoPedidos.Application\obj\Debug\net9.0\GestaoPedidos.Application.pdb
+D:\DesafioTWRT\src\GestaoPedidos.Application\obj\Debug\net9.0\ref\GestaoPedidos.Application.dll
